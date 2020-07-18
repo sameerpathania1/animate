@@ -15,14 +15,10 @@ function App() {
   let logotext = useRef(null)
   const [isVisibleLogo, setIsVisibleLogo] = useState(true)
   const [showLogo, setShowLogo] = useState(true)
-  let tl = new TimelineLite();
+  const [tl] = useState(gsap.timeline({ delay: 0.8 }))
 
   useEffect(() => {
     TweenMax.to(app, 0, { css: { visibility: 'visible' } })
-
-
-
-
     // tl.from(firstElement.firstElementChild, 1.2, { ease: Power3.easeOut })
 
     setTimeout(() => {
@@ -30,10 +26,6 @@ function App() {
     }, 4000)
     setTimeout(() => {
       setShowLogo(false)
-
-      if (revealRefs.current.length) {
-
-      }
     }, 5000)
 
 
