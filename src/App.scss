@@ -1,0 +1,72 @@
+.homepage {
+  visibility: hidden;
+  height: 100vh;
+  background-color: black;
+  // overflow: hidden !important;
+  color: white;
+  .logo-text-div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    overflow: hidden !important;
+    .text-tag {
+      width: fit-content;
+      overflow: hidden !important;
+      margin: auto;
+      font-weight: 100;
+      font-size: 60px;
+      padding-right: 20px;
+      opacity: 7;
+      div {
+        overflow: hidden !important;
+        display: flex;
+      }
+    }
+  }
+  .homepage-content {
+    width: 100%;
+    height: 100%;
+    // overflow: hidden;
+    // display: flex;
+    .homepage-div {
+      height: 100vh;
+      .section {
+        height: 100vh;
+        visibility: hidden;
+        // display: flex;
+        position: relative;
+        .label-div {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          // background-color: grey;
+          // z-index: 99;
+          p {
+            color: white;
+            margin: auto;
+            // z-index: 10;
+            font-size: 40px;
+            font-weight: 600;
+          }
+        }
+        .label-div-0 {
+          background-image: url(./assets/wallpaper.jpg);
+          background-repeat: no-repeat !important;
+          background-size: cover !important;
+        }
+        .label-div-1 {
+          background-image: url(./assets/wallpaper2.jpg);
+          background-repeat: no-repeat !important;
+          background-size: cover !important;
+        }
+        .background {
+          position: absolute;
+          background-color: rgb(61, 61, 61);
+          z-index: 1;
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
