@@ -1,12 +1,18 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { TimelineLite, Power3, Power2, TweenMax, ScrollTrigger, gsap } from "gsap/all"
-import backgroundImg from "./assets/wallpaper.jpg"
 import './App.scss';
-import { logoLabel, sections } from './constants';
+import { logoLabel } from './constants';
 import { Animated } from "react-animated-css";
+import WebsiteDesign from './homepage/WebsiteDesign';
+import Ecommerce from './homepage/Ecommerce';
+import MobileApp from './homepage/MobileApp';
+import Software from './homepage/Software';
+import DigitalMarketing from './homepage/DigitalMarketing';
+// import wd from "./assets/homepage/wd.jpg"
+// import ec from "./assets/homepage/ec.jpg"
+// import { act } from 'react-dom/test-utils';
 
 gsap.registerPlugin(ScrollTrigger)
-var pageHeight = window.innerHeight;
 function App() {
   let app = useRef(null)
   let content = useRef(null)
@@ -15,7 +21,18 @@ function App() {
   let logotext = useRef(null)
   const [isVisibleLogo, setIsVisibleLogo] = useState(true)
   const [showLogo, setShowLogo] = useState(true)
+  const [activeIndex, setActiveIndex] = useState(1)
+  const [imageVisible, setImageVisible] = useState(true)
+  const [textVisible, setTextVisible] = useState(true)
+  const [blackDivVisible, setblackDivVisible] = useState(false)
+  const [pageChange, setPageChange] = useState(true)
+  const [activePage, setActivePage] = useState(1);
   const [tl] = useState(gsap.timeline({ delay: 0.8 }))
+  const activeIndexRef = useRef(activeIndex);
+  const pageChangeRef = useRef(pageChange);
+  const imageVisibleRef = useRef(imageVisible)
+  const textVisibleRef = useRef(textVisible)
+  const blackDivVisibleRef = useRef(blackDivVisible)
 
   useEffect(() => {
     TweenMax.to(app, 0, { css: { visibility: 'visible' } })
@@ -27,9 +44,6 @@ function App() {
     setTimeout(() => {
       setShowLogo(false)
     }, 5000)
-
-
-
 
     // const first = content
 
@@ -83,41 +97,128 @@ function App() {
     //   })
     // })
 
+    // $('#root').on('mousewheel', onMouseMove);
+    window.addEventListener('mousewheel', onMouseMove, true)
+    return () => {
+      window.removeEventListener('mousewheel', onMouseMove, true)
+    }
   }, [])
 
-  useEffect(() => {
-    if (!showLogo) {
-      let firstElement = null;
-      let secondElement = null;
-      if (revealRefs.current.length) {
-        firstElement = revealRefs.current[0];
-        secondElement = revealRefs.current[1];
+  const onMouseMove = (event) => {
+    if (event.deltaY < 0) {
+      if (pageChangeRef.current) {
+        console.log('mouse up')
+        if (activeIndexRef.current === 1) {
+
+          setTextVisible((textVisible) => {
+            textVisibleRef.current = false
+            return textVisible = textVisibleRef.current
+          })
+
+          setActiveIndex((activeIndex) => {
+            activeIndexRef.current = 5
+            return activeIndex = activeIndexRef.current
+          })
+
+        } else {
+
+          setTextVisible((textVisible) => {
+            textVisibleRef.current = false
+            return textVisible = textVisibleRef.current
+          })
+
+          setActiveIndex((activeIndex) => {
+            activeIndexRef.current = activeIndexRef.current - 1
+            return activeIndex = activeIndexRef.current
+          })
+
+        }
       }
-
-      TweenMax.to(firstElement, 0, { css: { visibility: 'visible' } })
-      tl.staggerFrom(firstElement.firstElementChild.children[0], 1, {
-        y: 44, ease: Power2.easeInOut, color: "black", delay: .8
-      }, 0.2).from(firstElement.firstElementChild, 1, {
-        background: 'black',
-        ease: Power2.easeOut,
-      })
-
-      TweenMax.to(secondElement, 0, { css: { visibility: 'visible' } })
-      tl.staggerFrom(secondElement.firstElementChild.children[0], 1, {
-        y: 200, ease: Power2.easeInOut, color: "black", delay: .8
-      }, 0.2).from(secondElement.firstElementChild, 1, {
-        background: 'black',
-        ease: Power2.easeOut,
-      })
+      return
     }
-  }, [showLogo])
+    else if (event.deltaY > 0) {
+      console.log('mouse down')
+      if (pageChangeRef.current) {
+        if (activeIndexRef.current > 4) {
 
-  const addToRefs = (el) => {
-    if (el && !revealRefs.current.includes(el)) {
-      revealRefs.current.push(el)
+          setTextVisible((textVisible) => {
+            textVisibleRef.current = false
+            return textVisible = textVisibleRef.current
+          })
+
+          setActiveIndex((activeIndex) => {
+            activeIndexRef.current = 1
+            return activeIndex = activeIndexRef.current
+          })
+        } else {
+
+          setTextVisible((textVisible) => {
+            textVisibleRef.current = false
+            return textVisible = textVisibleRef.current
+          })
+
+
+          setActiveIndex((activeIndex) => {
+            activeIndexRef.current = activeIndexRef.current + 1
+            return activeIndex = activeIndexRef.current
+          })
+
+        }
+      }
     }
+    return false
   }
 
+  useEffect(() => {
+    setPageChange((pageChange) => {
+      pageChangeRef.current = false
+      return pageChangeRef.current
+    })
+    setTimeout(() => {
+      setTextVisible((textVisible) => {
+        textVisibleRef.current = true
+        return textVisible = textVisibleRef.current
+      })
+    }, 1240)
+    setTimeout(() => {
+      setActivePage(activeIndexRef.current)
+    }, 1250)
+
+    setTimeout(() => {
+      setPageChange((pageChange) => {
+        pageChangeRef.current = true
+        return pageChangeRef.current
+      })
+    }, 2500)
+  }, [activeIndexRef.current])
+
+  // useEffect(() => {
+  //   if (!showLogo) {
+  //     let firstElement = null;
+  //     let secondElement = null;
+  //     if (revealRefs.current.length) {
+  //       firstElement = revealRefs.current[0];
+  //       secondElement = revealRefs.current[1];
+  //     }
+  // TweenMax.to(firstElement, 0, { css: { visibility: 'visible' } })
+  // tl.staggerFrom(firstElement.firstElementChild.children[0], 1, {
+  //   y: 44, ease: Power2.easeInOut, color: "black", delay: .8
+  // }, 0.2).from(firstElement.firstElementChild, 1, {
+  //   background: 'black',
+  //   ease: Power2.easeOut,
+  // })
+
+  // TweenMax.to(secondElement, 0, { css: { visibility: 'visible' } })
+  // tl.staggerFrom(secondElement.firstElementChild.children[0], 1, {
+  //   y: 200, ease: Power2.easeInOut, color: "black", delay: .8
+  // }, 0.2).from(secondElement.firstElementChild, 1, {
+  //   background: 'black',
+  //   ease: Power2.easeOut,
+  // })
+  // }
+  // }, [showLogo])
+
+  console.log(activePage)
   return (
     <div className="homepage" ref={el => app = el}>
       {
@@ -134,7 +235,7 @@ function App() {
                     </Animated>
                   } else {
                     return <Animated key={index} animationIn="fadeInRight" isVisible={true} animationInDuration={400} animationInDelay={index * 80}>
-                      <Animated animationIn="fadeIn" isVisible={true} animationInDuration={1000} animationInDelay={index * 100}>
+                      <Animated animationIn="bounceIn" isVisible={true} animationInDuration={1500} animationInDelay={index * 100}>
                         <p style={{ padding: "0px 1px" }}>{item}</p>
                       </Animated>
                     </Animated>
@@ -144,32 +245,17 @@ function App() {
             </Animated>
           </h1>
         </div> : <div className="homepage-content">
+            <div className="homepage-info-div">
+              Info Field
+            </div>
             <div className="homepage-div">
-              {sections.map((section, index) => <div key={index} className="section" ref={addToRefs}>
-                <div className={`label-div label-div-${index}`}>
-                  <p>{section.label}</p>
-                </div>
-              </div>)}
-              {/* <div className="section" id="idd"> */}
-              {/* <p>Website Design</p>
-                <div className="box"></div>
-              </div>
-
-              <div className="section" id="idd">
-                <p>E-commerce</p>
-                <div className="box"></div>
-              </div>
-
-              <div className="section" id="idd">
-                <p>Mobile App</p>
-                <div className="box"></div>
-              </div>
-
-              <div className="section" id="idd" ref={addToRefs}>
-                <p>Software</p>
-                <div className="box"></div>
-              </div> */}
-              {/* </div> */}
+              {
+                activePage === 1 ? <WebsiteDesign textVisible={textVisible} /> :
+                  activePage === 2 ? <Ecommerce textVisible={textVisible} /> :
+                    activePage === 3 ? <MobileApp textVisible={textVisible} /> :
+                      activePage === 4 ? <Software textVisible={textVisible} /> :
+                        <DigitalMarketing imageVisible={imageVisible} textVisible={textVisible} blackDivVisible={blackDivVisible} />
+              }
             </div>
           </div>
       }
