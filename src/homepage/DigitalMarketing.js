@@ -54,7 +54,7 @@ function DigitalMarketing(props) {
                     animationIn="slideOutLeft"
                     animationOut="slideOutLeft"
                     className="black-div"
-                    animationOutDuration={3000}
+                    animationOutDuration={2000}
                     isVisible={false}
                 >
                 </Animated>
