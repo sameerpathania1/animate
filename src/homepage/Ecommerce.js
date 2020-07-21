@@ -42,7 +42,7 @@ function Ecommerce(props) {
             <Animated
                 animationIn="slideInRight"
                 animationOut="slideOutLeft"
-                animationInDuration={1000}
+                animationInDuration={2000}
                 animationOutDuration={5000}
                 animationOutDelay={500}
                 isVisible={textVisible}
@@ -54,7 +54,8 @@ function Ecommerce(props) {
                     animationIn="slideOutLeft"
                     animationOut="slideOutLeft"
                     className="black-div"
-                    animationOutDuration={2000}
+                    animationOutDuration={3000}
+                    animationOutDelay={500}
                     isVisible={false}
                 >
 
