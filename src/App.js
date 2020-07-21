@@ -8,8 +8,11 @@ import Ecommerce from './homepage/Ecommerce';
 import MobileApp from './homepage/MobileApp';
 import Software from './homepage/Software';
 import DigitalMarketing from './homepage/DigitalMarketing';
-// import wd from "./assets/homepage/wd.jpg"
-// import ec from "./assets/homepage/ec.jpg"
+import dm from "./assets/homepage/dm.jpg"
+import ec from "./assets/homepage/ec.jpg"
+import ma from "./assets/homepage/ma.jpg"
+import sh from "./assets/homepage/sh.jpg"
+import wd from "./assets/homepage/wd.jpg"
 // import { act } from 'react-dom/test-utils';
 
 gsap.registerPlugin(ScrollTrigger)
@@ -35,6 +38,17 @@ function App() {
   const blackDivVisibleRef = useRef(blackDivVisible)
 
   useEffect(() => {
+    let img1 = new Image();
+    let img2 = new Image();
+    let img3 = new Image();
+    let img4 = new Image();
+    let img5 = new Image();
+    img1.src = dm;
+    img2.src = ec;
+    img3.src = ma;
+    img4.src = sh;
+    img5.src = wd;
+
     TweenMax.to(app, 0, { css: { visibility: 'visible' } })
     // tl.from(firstElement.firstElementChild, 1.2, { ease: Power3.easeOut })
 

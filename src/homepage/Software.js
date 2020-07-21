@@ -43,14 +43,14 @@ function Software(props) {
                 animationIn="slideInRight"
                 animationOut="slideOutLeft"
                 animationInDuration={2000}
-                animationOutDuration={5000}
-                animationOutDelay={500}
+                animationOutDuration={3000}
+                // animationOutDelay={500}
                 isVisible={textVisible}
                 className="image-div"
             >
                 <img src={sh} />
                 <h1 className="ml2" id="showthis">Software</h1>
-                <Animated
+                {/* <Animated
                     animationIn="slideOutLeft"
                     animationOut="slideOutLeft"
                     className="black-div"
@@ -59,7 +59,7 @@ function Software(props) {
                     isVisible={false}
                 >
 
-                </Animated>
+                </Animated> */}
                 <Animated
                     animationIn="slideInRight"
                     className="black-div"
