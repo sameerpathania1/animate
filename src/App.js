@@ -40,7 +40,6 @@ function App() {
   // const imageVisibleRef = useRef(imageVisible)
   const textVisibleRef = useRef(textVisible)
   // const blackDivVisibleRef = useRef(blackDivVisible)
-  let slider = useRef(null);
 
   useEffect(() => {
     let img1 = new Image();
@@ -198,10 +197,10 @@ function App() {
         textVisibleRef.current = true
         return textVisible = textVisibleRef.current
       })
-    }, 900)
+    }, 1000)
     setTimeout(() => {
       setActivePage(activeIndexRef.current)
-    }, 1000)
+    }, 1020)
 
     setTimeout(() => {
       setPageChange((pageChange) => {
@@ -284,7 +283,7 @@ function App() {
                     activePage === 2 ? <Ecommerce textVisible={textVisible} /> :
                       activePage === 3 ? <MobileApp textVisible={textVisible} /> :
                         activePage === 4 ? <Software textVisible={textVisible} /> :
-                          <DigitalMarketing imageVisible={imageVisible} textVisible={textVisible} blackDivVisible={blackDivVisible} />
+                          <DigitalMarketing textVisible={textVisible} />
                 }
               </div>
             </div>

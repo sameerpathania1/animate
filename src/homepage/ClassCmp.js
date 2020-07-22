@@ -20,9 +20,10 @@ export default class ClassCmp extends PureComponent {
     onMouseMove = (e) => {
         if (e.deltaY > 0) {
             this.slider.slickNext()
-            this.slider.slickGoTo(this.props.activeIndex - 1)
+            // this.slider.slickGoTo(this.props.activeIndex - 1)
         } else {
             this.slider.slickPrev();
+            // this.slider.slickGoTo(this.props.activeIndex - 1)
         }
         return false
     }
@@ -60,22 +61,32 @@ export default class ClassCmp extends PureComponent {
         };
 
         return (
-            <div>
+            <div style={{ height: "100%" }}>
                 <Slider ref={c => (this.slider = c)} {...settings} className="react-slick-slider">
                     <div key={1} className={`background-slick ${this.props.activeIndex === 1 ? "active" : ""}`} onClick={() => this.onChangeSlide(1)}>
-                        <h3>Website Design</h3>
+                        <div className="react-slick-inner">
+                            <h3>Website Design</h3>
+                        </div>
                     </div>
                     <div key={2} className={`background-slick ${this.props.activeIndex === 2 ? "active" : ""}`} onClick={() => this.onChangeSlide(2)}>
-                        <h3>E-Commerce</h3>
+                        <div className="react-slick-inner">
+                            <h3>E-Commerce</h3>
+                        </div>
                     </div>
                     <div key={3} className={`background-slick ${this.props.activeIndex === 3 ? "active" : ""}`} onClick={() => this.onChangeSlide(3)}>
-                        <h3>Mobile App</h3>
+                        <div className="react-slick-inner">
+                            <h3>Mobile App</h3>
+                        </div>
                     </div>
                     <div key={4} className={`background-slick ${this.props.activeIndex === 4 ? "active" : ""}`} onClick={() => this.onChangeSlide(4)}>
-                        <h3>Software</h3>
+                        <div className="react-slick-inner">
+                            <h3>Software</h3>
+                        </div>
                     </div>
                     <div key={5} className={`background-slick ${this.props.activeIndex === 5 ? "active" : ""}`} onClick={() => this.onChangeSlide(5)}>
-                        <h3>Digital Marketing</h3>
+                        <div className="react-slick-inner">
+                            <h3>Digital Marketing</h3>
+                        </div>
                     </div>
                 </Slider>
             </div>
