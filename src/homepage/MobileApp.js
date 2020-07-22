@@ -1,28 +1,35 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import ma from "../assets/homepage/ma.jpg"
 import { Animated } from "react-animated-css";
+import { gsap } from "gsap/all"
 
 function MobileApp(props) {
     const { textVisible } = props;
+    const [tl] = useState(gsap.timeline({ delay: 0.8 }))
+    let focus = useRef(null)
+
+    useEffect(() => {
+        tl.to(focus, 0, { transform: 'scale(1.2)', transition: 'transform 15s ease-in' })
+    }, [])
 
     return (
         <div className="sections">
             <Animated
-                animationIn="slideInRight"
+                animationIn="fadeIn"
                 animationOut="fadeOut"
-                animationInDuration={1000}
-                animationOutDuration={1500}
+                animationInDuration={4000}
+                animationOutDuration={3000}
                 // animationOutDelay={500}
                 isVisible={textVisible}
                 className="image-div"
             >
-                <img src={ma} />
+                <img ref={el => focus = el} src={ma} />
                 <Animated
                     animationIn="slideOutLeft"
                     animationOut="slideOutLeft"
                     className="black-div"
-                    animationOutDuration={1000}
-                    animationOutDelay={0}
+                    animationOutDuration={2000}
+                    // animationOutDelay={0}
                     isVisible={!textVisible}
                 >
 
@@ -30,7 +37,7 @@ function MobileApp(props) {
                 <Animated
                     animationIn="slideInRight"
                     className="black-div"
-                    animationInDuration={1500}
+                    animationInDuration={2000}
                     isVisible={!textVisible}
                 >
 

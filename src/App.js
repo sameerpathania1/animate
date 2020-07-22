@@ -197,17 +197,17 @@ function App() {
         textVisibleRef.current = true
         return textVisible = textVisibleRef.current
       })
-    }, 1000)
+    }, 1980)
     setTimeout(() => {
       setActivePage(activeIndexRef.current)
-    }, 1020)
+    }, 2000)
 
     setTimeout(() => {
       setPageChange((pageChange) => {
         pageChangeRef.current = true
         return pageChangeRef.current
       })
-    }, 1500)
+    }, 2100)
   }, [activeIndexRef.current])
 
   // useEffect(() => {

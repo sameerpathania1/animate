@@ -57,13 +57,18 @@
         overflow: hidden !important;
         .image-div {
           position: relative;
-          width: 100%;
-          height: 100%;
+          width: 120%;
+          height: 120%;
           img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 10s ease;
           }
+        }
+        .image-div:focus img {
+          transform: scale(2);
+          transition: transform 10s ease-in;
         }
         .page-title {
           position: absolute;
@@ -127,7 +132,7 @@
     text-align: center;
     padding: 5px 0px;
     height: 100%;
-
+    cursor: grabbing;
     // align-self: center;
     // height: 100px;
     .react-slick-inner {
@@ -136,15 +141,16 @@
     }
     h3 {
       margin: auto !important;
-      font-size: 58px;
+      font-size: 80px;
       cursor: pointer;
       color: transparent;
       // margin-top: 0px;
       -webkit-text-stroke: 1px #fff;
-      -ms-transform: scale(1.5); /* IE 9 */
-      -webkit-transform: scale(1.5); /* Safari 3-8 */
-      transform: scale(1);
-      transition: 1s transform 0.5s ease-in, color 2000ms linear, margin-top 2000ms linear;
+      // -ms-transform: scale(1.5); /* IE 9 */
+      // -webkit-transform: scale(1.5); /* Safari 3-8 */
+      // transform: scale(1);
+      // transition: 1s transform 0.5s ease-in, color 2000ms linear, margin-top 2000ms linear;
+      transition: color 2000ms linear;
     }
     &:focus {
       border: none !important;
@@ -154,13 +160,88 @@
   .active {
     h3 {
       margin: auto !important;
-      color: #fff;
+      // color: #fff;
       // font-size: 60px;
-      margin-top: -6px;
-      -ms-transform: scale(1.5); /* IE 9 */
-      -webkit-transform: scale(1.5); /* Safari 3-8 */
-      transform: scale(1.1);
-      transition: 1s transform 0.1s ease-in, color 2000ms linear, margin-top 2000ms linear;
+      // margin-top: -6px;
+      // -ms-transform: scale(1.5); /* IE 9 */
+      // -webkit-transform: scale(1.5); /* Safari 3-8 */
+      // transform: scale(1.1);
+      // transition: 1s transform 0.1s ease-in, color 2000ms linear, margin-top 2000ms linear;
+      // transition: color 2000ms linear;
+    }
+  }
+  .active {
+    h3 {
+      span {
+        &:nth-child(1) {
+          color: #fff;
+          transition: 0.5s color 100ms linear;
+        }
+        &:nth-child(2) {
+          color: #fff;
+          transition: 1s color 100ms linear;
+        }
+        &:nth-child(3) {
+          color: #fff;
+          transition: 1.5s color 100ms linear;
+        }
+        &:nth-child(4) {
+          color: #fff;
+          transition: 2s color 100ms linear;
+        }
+        &:nth-child(5) {
+          color: #fff;
+          transition: 2.5s color 100ms linear;
+        }
+        &:nth-child(6) {
+          color: #fff;
+          transition: 3s color 100ms linear;
+        }
+        &:nth-child(7) {
+          color: #fff;
+          transition: 3.5s color 100ms linear;
+        }
+        &:nth-child(8) {
+          color: #fff;
+          transition: 4s color 100ms linear;
+        }
+        &:nth-child(9) {
+          color: #fff;
+          transition: 4.5s color 100ms linear;
+        }
+        &:nth-child(10) {
+          color: #fff;
+          transition: 5s color 100ms linear;
+        }
+        &:nth-child(11) {
+          color: #fff;
+          transition: 5.5s color 100ms linear;
+        }
+        &:nth-child(12) {
+          color: #fff;
+          transition: 6s color 100ms linear;
+        }
+        &:nth-child(13) {
+          color: #fff;
+          transition: 6.5s color 100ms linear;
+        }
+        &:nth-child(14) {
+          color: #fff;
+          transition: 7s color 100ms linear;
+        }
+        &:nth-child(15) {
+          color: #fff;
+          transition: 7.5s color 100ms linear;
+        }
+        &:nth-child(16) {
+          color: #fff;
+          transition: 8s color 100ms linear;
+        }
+        &:nth-child(17) {
+          color: #fff;
+          transition: 8.5s color 100ms linear;
+        }
+      }
     }
   }
 }

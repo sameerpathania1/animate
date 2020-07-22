@@ -1,27 +1,34 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import ec from "../assets/homepage/ec.jpg"
+import { gsap } from "gsap/all"
 import { Animated } from "react-animated-css";
 
 function Ecommerce(props) {
     const { textVisible } = props;
+    const [tl] = useState(gsap.timeline({ delay: 0.8 }))
+    let focus = useRef(null)
+
+    useEffect(() => {
+        tl.to(focus, 0, { transform: 'scale(1.2)', transition: 'transform 15s ease-in' })
+    }, [])
 
     return (
         <div className="sections">
             <Animated
-                animationIn="slideInRight"
+                animationIn="fadeIn"
                 animationOut="fadeOut"
-                animationInDuration={1000}
-                animationOutDuration={1500}
+                animationInDuration={4000}
+                animationOutDuration={3000}
                 // animationOutDelay={500}
                 isVisible={textVisible}
                 className="image-div"
             >
-                <img src={ec} />
+                <img ref={el => focus = el} src={ec} />
                 <Animated
                     animationIn="slideOutLeft"
                     animationOut="slideOutLeft"
                     className="black-div"
-                    animationOutDuration={1000}
+                    animationOutDuration={2000}
                     animationOutDelay={0}
                     isVisible={!textVisible}
                 >
@@ -30,7 +37,7 @@ function Ecommerce(props) {
                 <Animated
                     animationIn="slideInRight"
                     className="black-div"
-                    animationInDuration={1500}
+                    animationInDuration={2000}
                     isVisible={!textVisible}
                 >
 
