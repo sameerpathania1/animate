@@ -111,9 +111,9 @@ export default class ClassCmp extends PureComponent {
                             })}</h3>
                         </div>
                     </div>
-                    <div style={{ width: 650 }} key={2} className={`background-slick ${this.props.activeIndex === 2 ? "active" : ""}`} onMouseOver={() => this.onChangeSlide(2)}>
+                    <div style={{ width: 650 }} key={2} className={`background-slick ${this.props.activeIndex === 2 ? "active" : ""}`} >
                         <div className="react-slick-inner">
-                            <h3>{ECommerce.map(item => {
+                            <h3 onMouseOver={() => this.onChangeSlide(2)}>{ECommerce.map(item => {
                                 if (item === " ") {
                                     return <span>&nbsp;</span>
                                 }
@@ -121,9 +121,9 @@ export default class ClassCmp extends PureComponent {
                             })}</h3>
                         </div>
                     </div>
-                    <div style={{ width: 620 }} key={3} className={`background-slick ${this.props.activeIndex === 3 ? "active" : ""}`} onMouseOver={() => this.onChangeSlide(3)}>
+                    <div style={{ width: 620 }} key={3} className={`background-slick ${this.props.activeIndex === 3 ? "active" : ""}`} >
                         <div className="react-slick-inner">
-                            <h3>{MobileApp.map(item => {
+                            <h3 onMouseOver={() => this.onChangeSlide(3)}>{MobileApp.map(item => {
                                 if (item === " ") {
                                     return <span>&nbsp;</span>
                                 }
@@ -133,7 +133,7 @@ export default class ClassCmp extends PureComponent {
                     </div>
                     <div style={{ width: 550 }} key={4} className={`background-slick ${this.props.activeIndex === 4 ? "active" : ""}`} onMouseOver={() => this.onChangeSlide(4)}>
                         <div className="react-slick-inner">
-                            <h3>{Software.map(item => {
+                            <h3 onMouseOver={() => this.onChangeSlide(4)}>{Software.map(item => {
                                 if (item === " ") {
                                     return <span>&nbsp;</span>
                                 }
@@ -143,7 +143,7 @@ export default class ClassCmp extends PureComponent {
                     </div>
                     <div style={{ width: 800 }} key={5} className={`background-slick ${this.props.activeIndex === 5 ? "active" : ""}`} onMouseOver={() => this.onChangeSlide(5)}>
                         <div className="react-slick-inner">
-                            <h3>{DigitalMarketing.map(item => {
+                            <h3 onMouseOver={() => this.onChangeSlide(5)}>{DigitalMarketing.map(item => {
                                 if (item === " ") {
                                     return <span>&nbsp;</span>
                                 }
