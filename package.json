@@ -7,6 +7,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "animate.css": "^4.1.0",
+    "express": "^4.17.1",
     "gsap": "^3.4.0",
     "jquery": "^3.5.1",
     "node-sass": "^4.14.1",
@@ -21,6 +22,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build-dev": "react-scripts build",
+    "build-node": "npm run build node server.js",
     "build": "CI= react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
